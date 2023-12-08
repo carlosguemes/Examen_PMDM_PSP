@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCNNBwrHW5ho1xNBnvh0B9a7MMturcFXrg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>553116002645</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>guemes.carlos.examenCarlosGuemes.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>examencarlosguemes1ev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>examencarlosguemes1ev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:553116002645:ios:13b832b0bca612b588e7dc</string>
+</dict>
+</plist>

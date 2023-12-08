@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553116002645",
+    "project_id": "examencarlosguemes1ev",
+    "storage_bucket": "examencarlosguemes1ev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553116002645:android:fb01dd5b273eab8e88e7dc",
+        "android_client_info": {
+          "package_name": "guemes.carlos.examen_carlos_guemes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE2nUe-M5xaLVH3mjI1FMdmllmb1L3l9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
