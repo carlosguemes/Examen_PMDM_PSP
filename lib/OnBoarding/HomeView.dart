@@ -3,9 +3,11 @@ import 'package:examen_carlos_guemes/Singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 
 import '../CustomViews/BottomMenu.dart';
+import '../CustomViews/DrawerClass.dart';
 import '../CustomViews/GridBuilderCell.dart';
 import '../CustomViews/PostCellView.dart';
 import '../FirestoreObjects/FbPost.dart';
+import 'LoginView.dart';
 
 class HomeView extends StatefulWidget {  @override
   State<HomeView> createState() => _HomeViewState();
@@ -26,15 +28,15 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void descargarPosts() async{
-    /*CollectionReference<FbPost> reference = DataHolder().fa.descargarPosts();
+    CollectionReference<FbPost> reference = DataHolder().fa.descargarPosts();
 
     QuerySnapshot<FbPost> querySnap = await reference.get();
     for (int i = 0; i < querySnap.docs.length; i++){
       setState(() {
         post.add(querySnap.docs[i].data());
       });
-    }*/
-    print('Inicio');
+    }
+    /*print('Inicio');
     CollectionReference<FbPost> reference = db
         .collection("Posts")
         .withConverter(fromFirestore: FbPost.fromFirestore,
@@ -47,7 +49,7 @@ class _HomeViewState extends State<HomeView> {
         post.add(querySnap.docs[i].data());
       });
     }
-    print('Descarga hecha');
+    print('Descarga hecha');*/
   }
 
   Widget? creadorDeItemLista(BuildContext context, int index){
@@ -95,6 +97,16 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
+  void eventoDrawerClass(int indice){
+    if (indice == 0){
+      DataHolder().fa.signOut;
+      Navigator.of(context).pushAndRemoveUntil (
+        MaterialPageRoute (builder: (BuildContext context) => LoginView()),
+        ModalRoute.withName('/loginview'),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +116,8 @@ class _HomeViewState extends State<HomeView> {
         celdasOLista(bIsList),
       ),
       bottomNavigationBar: BottomMenu(events: onBottomMenuPressed),
+
+      drawer: DrawerClass(onItemTap: eventoDrawerClass),
     );
   }
 }

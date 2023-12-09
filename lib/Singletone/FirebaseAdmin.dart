@@ -74,5 +74,9 @@ class FirebaseAdmin{
     return reference;
   }
 
+  void signOut(){
+    FirebaseAuth.instance.signOut();
+  }
+
 
 }
