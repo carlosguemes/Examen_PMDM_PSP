@@ -19,6 +19,7 @@ class RegisterView extends StatelessWidget{
   void onClickAceptarRegistrar() async {
     DataHolder().fa.onClickRegistrar
       (usernameController, passwordController, repasswordController);
+    Navigator.of(_context).popAndPushNamed('/loginview');
   }
 
   void onClickCancelarRegistrar(){

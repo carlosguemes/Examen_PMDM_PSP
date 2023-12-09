@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../FirestoreObjects/FbPost.dart';
+
 class FirebaseAdmin{
+
+  FirebaseFirestore db = FirebaseFirestore.instance;
 
   void onClickRegistrar (TextEditingController usernameController,
       TextEditingController passwordController,
@@ -57,6 +62,16 @@ class FirebaseAdmin{
     }
 
     return sesion;
+  }
+
+
+  CollectionReference <FbPost> descargarPosts(){
+    CollectionReference<FbPost> reference = db
+        .collection("Posts")
+        .withConverter(fromFirestore: FbPost.fromFirestore,
+        toFirestore: (FbPost post, _) => post.toFirestore());
+
+    return reference;
   }
 
 

@@ -16,6 +16,7 @@ class LoginView extends StatelessWidget {
 
   void onClickAceptar() async {
    DataHolder().fa.onClickLogin(tecUsername, tecPassword);
+   Navigator.of(_context).popAndPushNamed('/homeview');
   }
 
   void onClickRegistrar(){
