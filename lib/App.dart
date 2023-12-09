@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'OnBoarding/RegisterView.dart';
+
 class App extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+      return MaterialApp(
+        routes: {
+          '/registerview': (context) => RegisterView(),
+        },
+        initialRoute: '/registerview',
+      );
+    }
 
 }
