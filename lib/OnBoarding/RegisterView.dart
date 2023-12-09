@@ -22,7 +22,7 @@ class RegisterView extends StatelessWidget{
   }
 
   void onClickCancelarRegistrar(){
-    //Navigator.of(_context).popAndPushNamed('/loginview');
+    Navigator.of(_context).popAndPushNamed('/loginview');
   }
 
   @override

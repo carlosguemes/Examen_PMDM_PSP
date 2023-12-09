@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'OnBoarding/LoginView.dart';
 import 'OnBoarding/RegisterView.dart';
 
 class App extends StatelessWidget{
@@ -8,8 +9,9 @@ class App extends StatelessWidget{
       return MaterialApp(
         routes: {
           '/registerview': (context) => RegisterView(),
+          '/loginview': (context) => LoginView(),
         },
-        initialRoute: '/registerview',
+        initialRoute: '/loginview',
       );
     }
 
