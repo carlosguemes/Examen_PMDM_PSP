@@ -1,3 +1,4 @@
+import 'package:examen_carlos_guemes/Singletone/DataHolder.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,30 +17,12 @@ class RegisterView extends StatelessWidget{
   );
 
   void onClickAceptarRegistrar() async {
-    if (passwordController.text == repasswordController.text) {
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: usernameController.text,
-          password: passwordController.text,
-        );
-        Navigator.of(_context).popAndPushNamed('/homeview');
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'weak-password') {
-          print('The password provided is too weak.');
-        } else if (e.code == 'email-already-in-use') {
-          print('The account already exists for that email.');
-        }
-      } catch (e) {
-        print(e);
-      }
-    }
-    else{
-      ScaffoldMessenger.of(_context).showSnackBar(snackBar);
-    }
+    DataHolder().fa.onClickRegistrar
+      (usernameController, passwordController, repasswordController);
   }
 
   void onClickCancelarRegistrar(){
-    Navigator.of(_context).popAndPushNamed('/loginview');
+    //Navigator.of(_context).popAndPushNamed('/loginview');
   }
 
   @override
