@@ -48,5 +48,16 @@ class FirebaseAdmin{
     }
   }
 
+  Future<bool> comprobarSesion() async{
+    bool sesion = true;
+    await Future.delayed(Duration(seconds: 2));
+
+    if (FirebaseAuth.instance.currentUser == null) {
+      sesion = false;
+    }
+
+    return sesion;
+  }
+
 
 }

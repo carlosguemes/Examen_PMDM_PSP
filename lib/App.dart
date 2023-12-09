@@ -1,3 +1,4 @@
+import 'package:examen_carlos_guemes/OnBoarding/SplashView.dart';
 import 'package:flutter/material.dart';
 
 import 'OnBoarding/LoginView.dart';
@@ -10,8 +11,9 @@ class App extends StatelessWidget{
         routes: {
           '/registerview': (context) => RegisterView(),
           '/loginview': (context) => LoginView(),
+          '/splashview': (context) => SplashView(),
         },
-        initialRoute: '/loginview',
+        initialRoute: '/splashview',
       );
     }
 
