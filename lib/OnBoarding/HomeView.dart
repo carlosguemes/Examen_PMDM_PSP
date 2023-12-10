@@ -27,6 +27,7 @@ class _HomeViewState extends State<HomeView> {
     descargarPosts();
     super.initState();
     determinarTemperaturaLocal();
+    DataHolder().httpAdmin.getPilotosF1();
   }
 
   void descargarPosts() async{
