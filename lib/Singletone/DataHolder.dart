@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../FirestoreObjects/FbPost.dart';
 import 'FirebaseAdmin.dart';
+import 'GeolocAdmin.dart';
+import 'HttpAdmin.dart';
 
 class DataHolder{
   String sNombre = "Examen";
@@ -12,6 +14,8 @@ class DataHolder{
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   FirebaseAdmin fa = FirebaseAdmin();
+  GeolocAdmin geolocAdmin = GeolocAdmin();
+  HttpAdmin httpAdmin = HttpAdmin();
 
   factory DataHolder(){
     return _dataHolder;

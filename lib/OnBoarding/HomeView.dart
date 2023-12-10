@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:examen_carlos_guemes/Singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../CustomViews/BottomMenu.dart';
 import '../CustomViews/DrawerClass.dart';
@@ -25,6 +26,7 @@ class _HomeViewState extends State<HomeView> {
   void initState(){
     descargarPosts();
     super.initState();
+    determinarTemperaturaLocal();
   }
 
   void descargarPosts() async{
@@ -111,6 +113,12 @@ class _HomeViewState extends State<HomeView> {
     DataHolder().selectedPost = post[index];
     DataHolder().saveSelectedPostInCache();
     Navigator.of(context).pushNamed('/postview');
+  }
+
+  void determinarTemperaturaLocal() async{
+    Position position = await DataHolder().geolocAdmin.determinePosition();
+    double valor = await DataHolder().httpAdmin.pedirTemperaturasEn(position.latitude, position.longitude);
+    print("La temperatura en el sitio donde estás es de: " + valor.toString());
   }
 
   @override
