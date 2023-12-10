@@ -5,7 +5,7 @@ import '../FirestoreObjects/FbPost.dart';
 import 'FirebaseAdmin.dart';
 
 class DataHolder{
-
+  String sNombre = "Examen";
   FbPost? selectedPost;
 
   static final DataHolder _dataHolder = new DataHolder._internal();
@@ -19,6 +19,14 @@ class DataHolder{
 
   DataHolder._internal(){
     initCachedFbPost();
+  }
+
+  void saveSelectedPostInCache() async{
+    if (selectedPost!=null) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('titulo', selectedPost!.titulo);
+      prefs.setString('cuerpo', selectedPost!.cuerpo);
+    }
   }
 
   Future<FbPost?> initCachedFbPost() async{

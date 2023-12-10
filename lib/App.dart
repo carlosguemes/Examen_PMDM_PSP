@@ -3,6 +3,7 @@ import 'package:examen_carlos_guemes/OnBoarding/SplashView.dart';
 import 'package:flutter/material.dart';
 
 import 'OnBoarding/LoginView.dart';
+import 'OnBoarding/PostView.dart';
 import 'OnBoarding/RegisterView.dart';
 
 class App extends StatelessWidget{
@@ -14,6 +15,7 @@ class App extends StatelessWidget{
           '/loginview': (context) => LoginView(),
           '/splashview': (context) => SplashView(),
           '/homeview': (context) => HomeView(),
+          '/postview': (context) => PostView(),
         },
         initialRoute: '/homeview',
       );

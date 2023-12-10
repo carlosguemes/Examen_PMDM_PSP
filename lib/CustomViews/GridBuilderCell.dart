@@ -6,12 +6,12 @@ class GridBuilderCell extends StatelessWidget{
 
   final List<FbPost> post;
   final int iPosicion;
-  //final Function (int indice)? onItemListaClickedFunction;
+  final Function (int indice)? onItemListaClickedFunction;
 
   const GridBuilderCell({super.key,
     required this.post,
     required this.iPosicion,
-    //required this.onItemListaClickedFunction
+    required this.onItemListaClickedFunction
   });
 
   @override
@@ -36,7 +36,7 @@ class GridBuilderCell extends StatelessWidget{
             ),
           ),
           onTap: () {
-            //onItemListaClickedFunction!(index);
+            onItemListaClickedFunction!(index);
           },
         );
       },

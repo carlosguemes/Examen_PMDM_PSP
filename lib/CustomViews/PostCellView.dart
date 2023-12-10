@@ -6,14 +6,14 @@ class PostCellView extends StatelessWidget{
   final double dFontSize;
   final MaterialColor mcColores;
   final int iPosicion;
-  //final Function (int indice)? onItemListaClickedFunction;
+  final Function (int indice)? onItemListaClickedFunction;
 
   const PostCellView({super.key,
     required this.sText,
     required this.dFontSize,
     required this.mcColores,
     required this.iPosicion,
-    //required this.onItemListaClickedFunction
+    required this.onItemListaClickedFunction
   });
 
   @override
@@ -33,7 +33,7 @@ class PostCellView extends StatelessWidget{
           )
       ),
       onTap: () {
-        //onItemListaClickedFunction!(iPosicion);
+        onItemListaClickedFunction!(iPosicion);
       },
     );
   }

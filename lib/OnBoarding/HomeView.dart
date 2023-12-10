@@ -57,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
       dFontSize: 20,
       mcColores: Colors.red,
       iPosicion: index,
-      //onItemListaClickedFunction: onItemListaClicked,
+      onItemListaClickedFunction: onItemListaClicked,
     );
   }
 
@@ -69,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
     return GridBuilderCell(
       post: post,
       iPosicion: index,
-      //onItemListaClickedFunction: onItemListaClicked,
+      onItemListaClickedFunction: onItemListaClicked,
     );
   }
 
@@ -105,6 +105,12 @@ class _HomeViewState extends State<HomeView> {
         ModalRoute.withName('/loginview'),
       );
     }
+  }
+
+  void onItemListaClicked(int index){
+    DataHolder().selectedPost = post[index];
+    DataHolder().saveSelectedPostInCache();
+    Navigator.of(context).pushNamed('/postview');
   }
 
   @override
