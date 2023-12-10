@@ -124,6 +124,13 @@ class _HomeViewState extends State<HomeView> {
       bottomNavigationBar: BottomMenu(events: onBottomMenuPressed),
 
       drawer: DrawerClass(onItemTap: eventoDrawerClass),
+
+      floatingActionButton:FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed("/postcreateview");
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }

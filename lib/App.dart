@@ -1,4 +1,5 @@
 import 'package:examen_carlos_guemes/OnBoarding/HomeView.dart';
+import 'package:examen_carlos_guemes/OnBoarding/PostCreateView.dart';
 import 'package:examen_carlos_guemes/OnBoarding/SplashView.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class App extends StatelessWidget{
           '/splashview': (context) => SplashView(),
           '/homeview': (context) => HomeView(),
           '/postview': (context) => PostView(),
+          '/postcreateview': (context) => PostCreateView()
         },
         initialRoute: '/homeview',
       );

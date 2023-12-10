@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 
 import '../FirestoreObjects/FbPost.dart';
 
-class FirebaseAdmin{
+class FirebaseAdmin {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
 
-  void onClickRegistrar (TextEditingController usernameController,
+  void onClickRegistrar(TextEditingController usernameController,
       TextEditingController passwordController,
-      TextEditingController repasswordController) async{
-
+      TextEditingController repasswordController) async {
     if (passwordController.text == repasswordController.text) {
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -29,21 +28,19 @@ class FirebaseAdmin{
         print(e);
       }
     }
-    else{
+    else {
       print('Las contraseñas tienen que ser iguales');
     }
   }
 
 
   void onClickLogin(TextEditingController tecUsername,
-      TextEditingController tecPassword) async{
-
+      TextEditingController tecPassword) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: tecUsername.text,
         password: tecPassword.text,
       );
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -53,7 +50,7 @@ class FirebaseAdmin{
     }
   }
 
-  Future<bool> comprobarSesion() async{
+  Future<bool> comprobarSesion() async {
     bool sesion = true;
     await Future.delayed(Duration(seconds: 2));
 
@@ -65,7 +62,7 @@ class FirebaseAdmin{
   }
 
 
-  CollectionReference <FbPost> descargarPosts(){
+  CollectionReference <FbPost> descargarPosts() {
     CollectionReference<FbPost> reference = db
         .collection("Posts")
         .withConverter(fromFirestore: FbPost.fromFirestore,
@@ -74,9 +71,16 @@ class FirebaseAdmin{
     return reference;
   }
 
-  void signOut(){
+  void signOut() {
     FirebaseAuth.instance.signOut();
   }
 
+  void crearPostEnFB(FbPost post) {
+    CollectionReference<FbPost> reference = db
+        .collection("Posts")
+        .withConverter(fromFirestore: FbPost.fromFirestore,
+        toFirestore: (FbPost post, _) => post.toFirestore());
 
+    reference.add(post);
+  }
 }
